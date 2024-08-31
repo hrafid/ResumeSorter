@@ -35,7 +35,9 @@ ResumeSorter/
 │
 ├── script.py
 ├── requirements.txt
-├── additional_file      # Additional file 
+├── ..............
+├── ..............
+├── state_dict_model.pt      # Additional file  
 
 ```
 ### Step 4: Set Up a Virtual Environment (Optional)
@@ -117,10 +119,7 @@ Feature extraction is not performed as DistilBERT handle this task internally.
 
 **Learning curve**
 #
-![fig](figures/loss_curve.png)
-
-![fig](figures/acc_curve.png)
-#
+![fig](figures/training_curve.png)
 
 
 * Evaluating model with test set (497 samples).
@@ -129,9 +128,9 @@ Feature extraction is not performed as DistilBERT handle this task internally.
 
 | evaluation metrics     | score       |
 | -----------            | ----------- |
-| Accuracy               | %         |
-| Precision              | %         |
-| recall                 | %         |
-| F1                     | %         |
+| Accuracy               | 0.83%         |
+| Precision              | 0.84%         |
+| recall                 | 0.83%         |
+| F1                     | 0.83%         |
 
 Best model is intregated into the script for resume categorization.
