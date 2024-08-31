@@ -26,8 +26,8 @@ cd ResumeSorter
 ```
 
 ### Step 3: Downloading Additional File
-* This script requires an additional file to execute.
-* Download the file from this [link](www,google.com) and place it in the same directory where the cloned files are located.
+* This script requires an additional file *state_dict_model.pt* to execute.
+* Download the file from this [link](https://drive.google.com/file/d/1-OZfY3-VOYt44nThkkuhO5z_QbXs1e4e/view?usp=sharing) and place it in the same directory where the cloned files (*script.py*) are located.
 * Afterwards your directory should look something like this:
 
 ```bash
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ### Step 6: Run the script
 *After installing all dependencies and ensuring the additional file is in place, you can execute the script by running the following command:
 ```bash
-python script.py --file_path <path/to/pdfs> 
+python script.py --input_dir "<path/to/pdfs>" 
 ```
 > Replace **'<path/to/pdfs>'** with the folder directory containing the resume pdfs. 
 
@@ -68,20 +68,17 @@ python script.py --file_path <path/to/pdfs>
 * **Poor Performance of Traditional Models:** Models like Random Forest, SVM, Naive Bayes, Logistic Regression, and K-Nearest Neighbors and others yielded unsatisfactory results in resume categorization. **Accuracy 52-71%**.
 * **BERT's Superior Context Understanding:** BERT’s advanced contextual understanding and transfer learning capabilities significantly improved classification accuracy and adapted well to our specific dataset. **Accuracy 77%**
 * **Similar Results with RoBERTa:** RoBERTa delivered performance close to BERT, validating our choice of transformer models. **Accuracy 80%**
-* **DistilBERT's Accuracy Boost:** DistilBERT enhanced accuracy even further while maintaining efficiency in training leading to lower training time.
+* **DistilBERT's Accuracy Boost:** DistilBERT enhanced accuracy even further to **Accuracy 83%** while maintaining efficiency in training period leading to lower training time.
 * **More Ideal for Small Datasets:** DistilBERT’s fewer parameters and light weight model lead to better generalization on our small dataset, thus reducing chances ofoverfitting. 
 * **Fast Predictions:** Its lightweight nature ensures quicker training and prediction contribute to lowering time and space copmlexity, making the model more efficient for practical use.
 
-## Developing the Categorization Model
-### Dataset
-* A resume pdfs dataset [Link](data) was utilized in order to train the model
-* Class distribution of the dataset:
-
+#
 ## Developing the Categorization Model
 
 ### Dataset
-* A resume pdfs dataset [Link](data) was utilized in order to train the model
+* A resume pdfs dataset [Link](https://drive.google.com/file/d/1gpUMjHtnOGQoiItBYe-q8AUUbdMgzmHK/view?usp=sharing) was utilized in order to train the model
 * Class distribution of the dataset:
+#
 ![fig](figures/class_distrbution.png)
 
 ### Cleaning data
@@ -98,7 +95,7 @@ Sample dataset after converting to text:
 
 * The dataset is cleaned by removing less useful part of text (e.g. emails, numbers)
 
-Feature extraction is not performed as DistilBERT handle this task internally.
+#
 
 ###  Dataset split 
 * The dataset is split into three portion: train set, validation set, test set. 
@@ -117,12 +114,12 @@ Feature extraction is not performed as DistilBERT handle this task internally.
 * Set up class weights, optimizer (Adam), loss function (cross-entropy), and learning rate scheduler.
 * Training the model over 30 epochs, tracking loss and accuracy.
 
-**Learning curve**
+**Learning curves**
 #
 ![fig](figures/training_curve.png)
 
 
-* Evaluating model with test set (497 samples).
+* Model was evaluated with a test set of 497 samples.
 
 **Performance on test set**
 
@@ -133,4 +130,10 @@ Feature extraction is not performed as DistilBERT handle this task internally.
 | recall                 | 0.83%         |
 | F1                     | 0.83%         |
 
-Best model is intregated into the script for resume categorization.
+The model is filetuned and the best model is intregated into the script for resume categorization.
+#
+## 🔗 Links
+
+[![linkedin](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rakibul-haque/)
+
+
