@@ -62,6 +62,19 @@ python script.py --file_path <path/to/pdfs>
 * Category folders within the same directory will be created based on the domain of resume.
 * Resumes will be moved into their respective catagory folders
 
+## Rational for selecting DistilBERT
+* **Poor Performance of Traditional Models:** Models like Random Forest, SVM, Naive Bayes, Logistic Regression, and K-Nearest Neighbors and others yielded unsatisfactory results in resume categorization. **Accuracy 52-71%**.
+* **BERT's Superior Context Understanding:** BERT’s advanced contextual understanding and transfer learning capabilities significantly improved classification accuracy and adapted well to our specific dataset. **Accuracy 77%**
+* **Similar Results with RoBERTa:** RoBERTa delivered performance close to BERT, validating our choice of transformer models. **Accuracy 80%**
+* **DistilBERT's Accuracy Boost:** DistilBERT enhanced accuracy even further while maintaining efficiency in training leading to lower training time.
+* **More Ideal for Small Datasets:** DistilBERT’s fewer parameters and light weight model lead to better generalization on our small dataset, thus reducing chances ofoverfitting. 
+* **Fast Predictions:** Its lightweight nature ensures quicker training and prediction contribute to lowering time and space copmlexity, making the model more efficient for practical use.
+
+## Developing the Categorization Model
+### Dataset
+* A resume pdfs dataset [Link](data) was utilized in order to train the model
+* Class distribution of the dataset:
+
 ## Developing the Categorization Model
 
 ### Dataset
