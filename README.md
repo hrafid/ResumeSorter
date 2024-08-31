@@ -112,7 +112,7 @@ Sample dataset after converting to text:
 ### Training model
 * Loading a pre-trained DistilBERT model. 
 * Set up class weights, optimizer (Adam), loss function (cross-entropy), and learning rate scheduler.
-* Training the model over 30 epochs, tracking loss and accuracy.
+* Training the model over 10 epochs, tracking loss and accuracy.
 
 **Learning curves**
 #
