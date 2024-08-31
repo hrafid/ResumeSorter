@@ -121,6 +121,8 @@ Sample dataset after converting to text:
 
 * Model was evaluated with a test set of 497 samples.
 
+* The model is finetuned and the best model is intregated into the script for resume categorization.
+
 **Performance on test set**
 
 | evaluation metrics     | score       |
@@ -130,7 +132,7 @@ Sample dataset after converting to text:
 | recall                 | 0.83%         |
 | F1                     | 0.83%         |
 
-The model is filetuned and the best model is intregated into the script for resume categorization.
+
 #
 ## 🔗 Links
 
