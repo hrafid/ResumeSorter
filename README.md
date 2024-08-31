@@ -2,8 +2,9 @@
 # ResumeSorter
 ### NLP-Driven Resume Classification pipeline
 
-This project applies Machine Learning and Natural Language Processing to automate the categorization of resumes. The goal is to develop a script that classifies resumes based on their content, streamlining the review process. We employ BERT, an advanced language model with strong contextual understanding, to train on resume data. This allows BERT to identify key features for various job categories, offering a more efficient and accurate method for sorting resumes and improving recruitment processes.
+This project applies Machine Learning and Natural Language Processing to automate the categorization of resumes. The goal is to develop a script that classifies resumes based on their content, streamlining the review process. We employ **DistilBERT** to train on resume data. it is a small and fast Transformer based advance language model with strong contextual understanding. This allows DistilBERT to identify key features for various job categories, offering a more efficient and accurate method for sorting resumes and improving recruitment processes.
 
+![Python](https://img.shields.io/badge/python-v3.9.0-green) ![Platform](https://img.shields.io/badge/Platform-Windows10%20Pro%20version%2C%2022H2-blue)
 
 ## Running the Script
 To run the Python script follow these steps:
@@ -32,7 +33,7 @@ ResumeSorter/
 │
 ├── script.py
 ├── requirements.txt
-├── additional_file.ext   # Additional file 
+├── additional_file      # Additional file 
 
 ```
 ### Step 4: Set Up a Virtual Environment (Optional)
@@ -59,3 +60,62 @@ ResumeSorter/
 * Category folders within the same directory will be created based on the domain of resume.
 * Resumes will be moved into their respective catagory folders
 
+## Developing the Categorization Model
+
+### Dataset
+* A resume pdfs dataset [Link](data) was utilized in order to train the model
+* Class distribution of the dataset:
+![fig](images/class_distrbution.png)
+
+### Cleaning data
+* The pdfs are converted into text.
+* The texts are stored in pandas dataframe with their category 
+Sample dataset after converting to text:
+| category | resume    |
+| :-------- | :------- |
+| ACCOUNTANT | ACCOUNTANT\nSummary\nFinancial Accountant spec... |
+| ACCOUNTANT | SENIOR ACCOUNTANT\nExperience\nCompany Name\n ...|
+| ACCOUNTANT | ACCOUNTANT\nProfessional Summary\nTo obtain a ..|
+| ACCOUNTANT | SENIOR ACCOUNTANT\nProfessional Summary\nSenio...|
+
+* The dataset is cleaned by removing less useful part of text (e.g. emails, numbers)
+
+Feature extractin is not performed as DistilBERT handle this task internally.
+
+###  Dataset split 
+* The dataset is split into three portion: train set, validation set, test set. 
+* Ratio for split 70:10:20 
+
+###  Data augmentation
+* Easy Data Augmentation (EDA) is applied on train set to address data imbalance issue of some categories.
+* After augmentation all category contains 120 samples.
+
+### Data processing for training
+* Maping categorical labels to integer values for model compatibility
+* Dataset is tokenized with **DistilBertTokenizer**  
+
+### Training model
+* Loading a pre-trained DistilBERT model. 
+* Set up class weights, optimizer (Adam), loss function (cross-entropy), and learning rate scheduler.
+* Training the model over 30 epochs, tracking loss and accuracy.
+
+**Learning curve**
+#
+![fig](figures/loss_curve.png)
+
+![fig](figures/acc_curve.png)
+#
+
+
+* Evaluating model with test set (497 samples).
+
+**Performance on test set**
+
+| evaluation metrics     | score       |
+| -----------            | ----------- |
+| Accuracy               | %         |
+| Precision              | %         |
+| recall                 | %         |
+| F1                     | %         |
+
+Best model is intregated into the script for resume categorization.
