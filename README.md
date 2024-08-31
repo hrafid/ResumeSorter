@@ -65,7 +65,7 @@ ResumeSorter/
 ### Dataset
 * A resume pdfs dataset [Link](data) was utilized in order to train the model
 * Class distribution of the dataset:
-![fig](images/class_distrbution.png)
+![fig](figures/class_distrbution.png)
 
 ### Cleaning data
 * The pdfs are converted into text.
@@ -73,10 +73,10 @@ ResumeSorter/
 Sample dataset after converting to text:
 | category | resume    |
 | :-------- | :------- |
-| ACCOUNTANT | ACCOUNTANT\nSummary\nFinancial Accountant spec... |
-| ACCOUNTANT | SENIOR ACCOUNTANT\nExperience\nCompany Name\n ...|
-| ACCOUNTANT | ACCOUNTANT\nProfessional Summary\nTo obtain a ..|
-| ACCOUNTANT | SENIOR ACCOUNTANT\nProfessional Summary\nSenio...|
+| ACCOUNTANT | ACCOUNTANT Summary Financial Accountant spec... |
+| ACCOUNTANT | SENIOR ACCOUNTANT Experience Company Name  ...|
+| ACCOUNTANT | ACCOUNTANT Professional Summary To obtain a ..|
+| ACCOUNTANT | SENIOR ACCOUNTANT Professional Summary Senio...|
 
 * The dataset is cleaned by removing less useful part of text (e.g. emails, numbers)
 
