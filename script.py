@@ -12,10 +12,6 @@ import shutil
 from PyPDF2 import PdfReader
 import PyPDF2 
 import argparse
-import warnings
-import logging
-from transformers import logging as transformers_logging
-
 
 
 ### extracting script.py directory as _.pt file is also located there
